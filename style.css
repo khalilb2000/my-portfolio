@@ -1,0 +1,44 @@
+/* Reset some default styles */
+body, h1, h2, h3, ul, li, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Basic styling */
+  header, nav, section {
+    margin: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav li {
+    margin-right: 15px;
+  }
+  
+  /* Profile image */
+  .profile img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Application images */
+  .applications {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .application img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .application img:hover {
+    border-color: #aaa;
+  }
+  
