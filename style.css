@@ -1,44 +1,70 @@
 /* Reset some default styles */
-body, h1, h2, h3, ul, li, p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Basic styling */
-  header, nav, section {
-    margin: 20px;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-  }
-  
-  nav li {
-    margin-right: 15px;
-  }
-  
-  /* Profile image */
-  .profile img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Application images */
-  .applications {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
-  
-  .application img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    cursor: pointer;
-  }
-  
-  .application img:hover {
-    border-color: #aaa;
-  }
-  
+ h1, h2, h3, ul, li, p {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Basic styling */
+header, nav, section {
+  margin: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  background-color: #343A40; /* Dark Gray */
+}
+
+nav li {
+  margin-right: 15px;
+}
+
+/* Profile image */
+.profile img {
+  max-width: 7%;
+  height: auto;
+  background-color: #212F3D; /* Navy Blue */
+}
+
+/* Application images */
+.applications {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.application img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.application img:hover {
+  border-color: #17A2B8; /* Turquoise */
+}
+
+/* Other styles */
+body {
+  background-color: #F8F9FA; /* Light Gray */
+  color: #333333; /* Dark Gray */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Links */
+a {
+  color: #007BFF; /* Blue */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.application:first-child img {
+  max-width: 70%; /* Larger size for the first image */
+  height: auto;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
