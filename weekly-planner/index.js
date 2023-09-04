@@ -4,7 +4,16 @@ const saveButton = document.getElementById('saveButton');
 function saveEvent(){
   
 
-  const currentHour = this.parentNode.id;
+  const currentHour = dayjs().format('H');
+//looping each time block element and updating classes accoridngly
+  document.querySelectorAll('.time-block').forEach((timeBlock)) => {
+    
+    const blockHour = parseInt(timeBlock.id.split('-')[1]);
+
+    if (blockHour < currentHour) {
+      timeBlock.classList.remove('present','future')
+    }
+}
 
   const eventText = this.previousElementSibling.value;
 
