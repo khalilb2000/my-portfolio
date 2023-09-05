@@ -27,9 +27,17 @@ document.querySelectorAll('.time-block').forEach((timeBlock) => {
   } else if ( blockHour === currentHour) {
     timeBlock.classList.remove('past', 'future');
     timeBlock.classList.add('present');
-  } else ( blockHour > currentHour) {
+  } else ( blockHour > currentHour); {
     timeBlock.classList.remove('present', 'past')
     timeBlock.classList.add('future');
   }
 });
-console.error()
+
+document.querySelector('saveBtn').forEach((saveButton) => {saveButton.addEventListener('click', saveEvent);
+});
+// here I am createing a function for my savebutton
+function saveEvent(){
+  const currentHour = this.parentNode.id;
+  const eventText = this.previousElementSibling.value;
+  localStorage.setItem(currentHour, eventText)
+}
