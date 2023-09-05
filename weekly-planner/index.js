@@ -1,51 +1,35 @@
-const save = document.querySelector.innerHTML
-const saveButton = document.getElementById('saveButton');
+const saveBttns = document.querySelectorAll('.saveBtn');;
 
-function saveEvent(){
-  
-
-  const currentHour = dayjs().format('H');
-//looping each time block element and updating classes accoridngly
-  document.querySelectorAll('.time-block').forEach((timeBlock)) => {
-    
-    const blockHour = parseInt(timeBlock.id.split('-')[1]);
-
-    if (blockHour < currentHour) {
-      timeBlock.classList.remove('present','future')
-    }
+//start of function
+function saveEvent() {
+const currentHour = this.parentNode.id;
+const eventText = this.previousElementSibling.value;
+//getting current hour from local system.
+localStorage.setItem(currentHour, eventText);
 }
 
-  const eventText = this.previousElementSibling.value;
+saveBttns.forEach((button) => {
+  button.addEventListener('click', saveEvent);
+});
+// calling in the DayJS library.
+const currentDate = dayjs().format('dddd, MMM D, YYYY, hh:mm:ss A');
+// Putting current hr in 24hr format.
+const currentHour = dayjs().format('H');
 
-  localStorage.setItem(currentHour, eventText);
-}
+document.getElementById('currentDay').textContent = currentDate;
 
-saveButton.addEventListenter('click', saveEvent);
-
-const currentDate = dayjs().format('dddd,MMM D, YYY, hh:mm:ss A');
-
-document.getItemById('currentDay').textContent = currentDate; 
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  function saveEvent(){
-    const eventText = 
-    localStorage.setItem('save')
+document.querySelectorAll('.time-block').forEach((timeBlock) => {
+  const blockHour = parseInt(timeBlock.id.split('-')[1]);
+// looping through the time-block elements
+  if (blockHour < currentHour) {
+    timeBlock.classList.remove('present' , 'future');
+    timeBlock.classList.add('past');
+  } else if ( blockHour === currentHour) {
+    timeBlock.classList.remove('past', 'future');
+    timeBlock.classList.add('present');
+  } else ( blockHour > currentHour) {
+    timeBlock.classList.remove('present', 'past')
+    timeBlock.classList.add('future');
   }
-  $('saveButton').on('click',saveEvent);
-  // TODO: Add code to display the current date in the header of the page
-  var time = dayjs().format('hh:mm:ss');
-$('h3').text(time);
+});
+console.error()
