@@ -22,6 +22,13 @@ document.getElementById('currentDay').textContent = currentDate;
 
 document.addEventListener('DOMContentLoaded', function(){
   // Get the current hour using dayjs (you might need to adjust this based on your specific requirements)
+  document.querySelectorAll('.saveBtn').forEach((saveButton) => {
+    saveButton.addEventListener('click',saveEvent)
+
+    document.addEventListener('click', saveCheck);
+  });
+
+ 
   const currentHour = dayjs().hour();
 
   // Loop through the time-block elements
@@ -42,14 +49,21 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
+if (timeBlocks === null){
+  console.error("No elements with class 'time-block' found.")
+}
 
-document.querySelector('saveBtn').forEach((saveButton) => {saveButton.addEventListener('click', saveEvent);
+document.querySelectorAll('.saveBtn').forEach((saveButton) => {saveButton.addEventListener('click', saveEvent);
 });
 // here I am createing a function for my savebutton
 function saveEvent(){
   const currentHour = this.parentNode.id;
   const eventText = this.previousElementSibling.value;
   localStorage.setItem(currentHour, eventText)
+  console.log('Save completed')
 }
+
+
+
 
 $('.saveBtn').on('click', saveEvent);
