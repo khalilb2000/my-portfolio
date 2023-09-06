@@ -25,8 +25,12 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('.saveBtn').forEach((saveButton) => {
     saveButton.addEventListener('click',saveEvent)
 
-    document.addEventListener('click', saveCheck);
+   loadNotes();
+
   });
+
+  
+
 
  
   const currentHour = dayjs().hour();
